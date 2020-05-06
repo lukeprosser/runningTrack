@@ -1,9 +1,12 @@
 /** @format */
 
 import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { triggerFeedback } from '../../actions/feedback';
 
-const Signup = () => {
+const Signup = ({ triggerFeedback }) => {
   const [formFields, setFormFields] = useState({
     firstName: '',
     lastName: '',
@@ -21,7 +24,7 @@ const Signup = () => {
     e.preventDefault();
 
     if (password !== passwordConfirm) {
-      console.log('Passwords do not match');
+      triggerFeedback('Passwords do not match', 'warning');
     } else {
       console.log('Success');
     }
@@ -96,4 +99,8 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+Signup.propTypes = {
+  triggerFeedback: PropTypes.func.isRequired,
+};
+
+export default connect(null, { triggerFeedback })(Signup);

@@ -4,6 +4,7 @@
   --primary-color: #ee6c4d;
   --secondary-color: #13a172;
   --ternary-color: #98c1d9;
+  --quartenary-color: #e0fbfc;
   --danger-color: #dc3545;
   --success-color: #28a745;
 }
@@ -53,6 +54,18 @@ ul {
   margin: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+}
+
+.feedback {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: var(--quartenary-color);
+  color: #333;
+}
+
+.feedback-warning {
+  background-color: var(--primary-color);
+  color: #fff;
 }
 
 /* Navbar */

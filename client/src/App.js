@@ -6,21 +6,29 @@ import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
+import Feedback from './components/utils/Feedback';
+
+// Redux
+import { Provider } from 'react-redux';
+import store from './store';
 
 import './App.css';
 
 const App = () => {
   return (
-    <Router>
-      <Fragment>
-        <Navbar />
-        <Route exact path='/' component={Landing} />
-        <Switch>
-          <Route exact path='/signup' component={Signup} />
-          <Route exact path='/login' component={Login} />
-        </Switch>
-      </Fragment>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <Navbar />
+          <Route exact path='/' component={Landing} />
+          <Feedback />
+          <Switch>
+            <Route exact path='/signup' component={Signup} />
+            <Route exact path='/login' component={Login} />
+          </Switch>
+        </Fragment>
+      </Router>
+    </Provider>
   );
 };
 
