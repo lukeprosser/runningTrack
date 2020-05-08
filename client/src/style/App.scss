@@ -38,7 +38,7 @@ ul {
 
 hr {
   width: 100%;
-  margin: 2rem auto;
+  margin: 1rem auto;
   border: 1px solid var(--grey-color);
 }
 
@@ -69,21 +69,22 @@ hr {
 
 .page-header {
   margin-bottom: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .lead {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .form {
   width: 100%;
-  margin: 2rem auto;
+  margin: 1rem auto;
 
   .form-group {
     input {
       width: 100%;
-      margin: 0.7rem auto;
-      padding: 0.8rem;
+      margin: 0.6rem auto;
+      padding: 0.6rem;
       border: 1px solid var(--primary-color);
       font-size: 0.8rem;
       letter-spacing: 1px;
