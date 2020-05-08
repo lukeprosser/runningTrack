@@ -2,7 +2,7 @@
 
 .landing {
   position: relative;
-  height: 100vh;
+  height: 84vh;
   overflow: hidden;
 
   .bg-image {
@@ -48,7 +48,11 @@
 }
 
 @media (min-width: 700px) {
-  .landing-inner h1 {
-    font-size: 3rem;
+  .landing {
+    height: 91vh;
+
+    .landing-inner h1 {
+      font-size: 3rem;
+    }
   }
 }

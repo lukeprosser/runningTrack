@@ -1,0 +1,14 @@
+/** @format */
+
+.signup-inner {
+  margin: 2rem auto;
+  text-align: center;
+
+  .form {
+    input[type='submit'] {
+      width: 100%;
+      margin: 1rem 0;
+      padding: 0.7rem 1.3rem;
+    }
+  }
+}

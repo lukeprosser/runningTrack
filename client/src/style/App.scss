@@ -4,8 +4,8 @@
 :root {
   --primary-color: rgb(24, 24, 24);
   --secondary-color: #13a172;
-  --grey-color: rgb(176, 176, 176);
-  --white-color: #efefef;
+  --grey-color: #d3d3d3;
+  --white-color: #f4f4f4;
   --warning-color: #ff5869;
   --success-color: #13a172;
 }
@@ -20,7 +20,6 @@ body {
   font-family: 'Raleway', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: var(--white-color);
   color: #333;
 }
 
@@ -37,8 +36,14 @@ ul {
   list-style: none;
 }
 
+hr {
+  width: 100%;
+  margin: 2rem auto;
+  border: 1px solid var(--grey-color);
+}
+
 .container {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
   overflow: hidden;
   padding: 0 2rem;
@@ -46,13 +51,13 @@ ul {
 
 .btn {
   display: inline-block;
-  background: var(--primary-color);
-  color: var(--white-color);
+  margin: 0.5rem;
   padding: 0.4rem 1.3rem;
-  font-size: 1rem;
   border: none;
   cursor: pointer;
-  margin: 0.5rem;
+  background: var(--primary-color);
+  color: var(--white-color);
+  font-size: 1rem;
   transition: opacity 0.2s ease-in;
   outline: none;
 }
@@ -60,4 +65,38 @@ ul {
 .btn:hover {
   background: var(--grey-color);
   color: var(--primary-color);
+}
+
+.page-header {
+  margin-bottom: 0.5rem;
+}
+
+.lead {
+  font-size: 1.2rem;
+}
+
+.form {
+  width: 100%;
+  margin: 2rem auto;
+
+  .form-group {
+    input {
+      width: 100%;
+      margin: 0.7rem auto;
+      padding: 0.8rem;
+      border: 1px solid var(--primary-color);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  hr {
+    width: 70%;
+  }
+
+  .form {
+    width: 50%;
+  }
 }
