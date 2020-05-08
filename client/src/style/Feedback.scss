@@ -1,0 +1,13 @@
+/** @format */
+
+.feedback {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: var(--grey-color);
+  color: #333;
+}
+
+.feedback-warning {
+  background-color: var(--warning-color);
+  color: #fff;
+}

@@ -12,7 +12,7 @@ import Feedback from './components/utils/Feedback';
 import { Provider } from 'react-redux';
 import store from './store';
 
-import './App.css';
+import './style/App.scss';
 
 const App = () => {
   return (

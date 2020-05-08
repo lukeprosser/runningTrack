@@ -1,0 +1,54 @@
+/** @format */
+
+.landing {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+  .bg-image {
+    background-image: url('../img/showcase.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    filter: blur(5px) grayscale(20%) brightness(50%);
+    -webkit-filter: blur(1px) grayscale(30%) brightness(50%);
+    transform: scale(1.1);
+  }
+
+  .landing-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .lead {
+      font-size: 1.3rem;
+    }
+
+    .cta {
+      margin: 1rem 0;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .landing-inner h1 {
+    font-size: 3rem;
+  }
+}

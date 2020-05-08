@@ -1,0 +1,43 @@
+/** @format */
+
+.navbar {
+  background-color: var(--primary-color);
+  text-align: center;
+
+  .container {
+    padding: 0.5rem 0;
+
+    a {
+      color: var(--white-color);
+    }
+
+    h1 {
+      margin-bottom: 0.3rem;
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+
+      li {
+        padding: 0.5rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    ul a:hover {
+      color: var(--grey-color);
+    }
+  }
+}

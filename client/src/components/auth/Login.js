@@ -3,6 +3,8 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import '../../style/Login.scss';
+
 const Login = () => {
   const [formFields, setFormFields] = useState({
     email: '',

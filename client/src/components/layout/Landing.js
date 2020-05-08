@@ -3,6 +3,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import '../../style/Landing.scss';
+
 export const Landing = () => {
   return (
     <section className='landing'>

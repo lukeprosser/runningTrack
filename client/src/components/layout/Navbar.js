@@ -3,6 +3,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import '../../style/Navbar.scss';
+
 export const Navbar = () => {
   return (
     <nav className='navbar'>
