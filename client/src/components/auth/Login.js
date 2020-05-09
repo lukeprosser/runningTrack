@@ -1,11 +1,14 @@
 /** @format */
 
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signin } from '../../actions/auth';
 
 import '../../style/Login.scss';
 
-const Login = () => {
+const Login = ({ signin, isAuthenticated }) => {
   const [formFields, setFormFields] = useState({
     email: '',
     password: '',
@@ -19,8 +22,13 @@ const Login = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    console.log('Success');
+    signin(email, password);
   };
+
+  // Redirect on sign in
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
+  }
 
   return (
     <Fragment>
@@ -51,7 +59,7 @@ const Login = () => {
                 minLength='6'
               />
             </div>
-            <input type='submit' className='btn btn-primary' value='Login' />
+            <input type='submit' className='btn' value='Login' />
           </form>
           <hr />
           <p className='my-1'>
@@ -66,4 +74,13 @@ const Login = () => {
   );
 };
 
-export default Login;
+Login.propTypes = {
+  signin: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { signin })(Login);
