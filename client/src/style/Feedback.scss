@@ -1,13 +1,25 @@
 /** @format */
 
-.feedback {
-  margin: 1rem 0;
-  padding: 0.5rem;
-  background-color: var(--grey-color);
-  color: #333;
+.feedback-inner {
+  max-width: 90%;
+  margin: 0.5rem auto;
+  text-align: center;
+
+  .feedback-default {
+    padding: 0.5rem;
+    background-color: var(--grey-color);
+    color: #333;
+  }
+
+  .feedback-warning {
+    padding: 0.5rem;
+    background-color: var(--warning-color);
+    color: #fff;
+  }
 }
 
-.feedback-warning {
-  background-color: var(--warning-color);
-  color: #fff;
+@media (min-width: 700px) {
+  .feedback-inner {
+    max-width: 80%;
+  }
 }

@@ -5,10 +5,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { triggerFeedback } from '../../actions/feedback';
+import { signup } from '../../actions/auth';
 
 import '../../style/Signup.scss';
 
-const Signup = ({ triggerFeedback }) => {
+const Signup = ({ triggerFeedback, signup }) => {
   const [formFields, setFormFields] = useState({
     firstName: '',
     lastName: '',
@@ -26,9 +27,17 @@ const Signup = ({ triggerFeedback }) => {
     e.preventDefault();
 
     if (password !== passwordConfirm) {
-      triggerFeedback('Passwords do not match', 'warning');
+      triggerFeedback(
+        "Oops...those passwords don't match - please try again",
+        'warning'
+      );
     } else {
-      console.log('Success');
+      signup({
+        firstName,
+        lastName,
+        email,
+        password,
+      });
     }
   };
 
@@ -46,7 +55,7 @@ const Signup = ({ triggerFeedback }) => {
                 name='firstName'
                 value={firstName}
                 onChange={(e) => onChange(e)}
-                required
+                // required
               />
             </div>
             <div className='form-group'>
@@ -56,7 +65,7 @@ const Signup = ({ triggerFeedback }) => {
                 name='lastName'
                 value={lastName}
                 onChange={(e) => onChange(e)}
-                required
+                // required
               />
             </div>
             <div className='form-group'>
@@ -66,7 +75,7 @@ const Signup = ({ triggerFeedback }) => {
                 name='email'
                 value={email}
                 onChange={(e) => onChange(e)}
-                required
+                // required
               />
             </div>
             <div className='form-group'>
@@ -76,7 +85,7 @@ const Signup = ({ triggerFeedback }) => {
                 name='password'
                 value={password}
                 onChange={(e) => onChange(e)}
-                minLength='6'
+                // minLength='6'
               />
             </div>
             <div className='form-group'>
@@ -86,7 +95,7 @@ const Signup = ({ triggerFeedback }) => {
                 name='passwordConfirm'
                 value={passwordConfirm}
                 onChange={(e) => onChange(e)}
-                minLength='6'
+                // minLength='6'
               />
             </div>
             <input type='submit' className='btn' value='Register' />
@@ -106,6 +115,7 @@ const Signup = ({ triggerFeedback }) => {
 
 Signup.propTypes = {
   triggerFeedback: PropTypes.func.isRequired,
+  signup: PropTypes.func.isRequired,
 };
 
-export default connect(null, { triggerFeedback })(Signup);
+export default connect(null, { triggerFeedback, signup })(Signup);
