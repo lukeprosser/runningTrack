@@ -34,7 +34,7 @@ const Login = ({ signin, isAuthenticated }) => {
     <Fragment>
       <div className='container'>
         <div className='login-inner'>
-          <h1 className='page-header'>Login</h1>
+          <h2 className='page-header'>Login</h2>
           <p className='lead'>
             Welcome back! Let's keep that progress going...
           </p>

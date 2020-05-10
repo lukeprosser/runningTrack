@@ -50,7 +50,7 @@ const Signup = ({ triggerFeedback, signup, isAuthenticated }) => {
     <Fragment>
       <div className='container'>
         <div className='signup-inner'>
-          <h1 className='page-header'>Sign Up</h1>
+          <h2 className='page-header'>Sign Up</h2>
           <p className='lead'>Just another step towards your goal...</p>
           <form className='form' onSubmit={(e) => onSubmit(e)}>
             <div className='form-group'>

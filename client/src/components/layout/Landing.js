@@ -1,11 +1,18 @@
 /** @format */
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import '../../style/Landing.scss';
 
-export const Landing = () => {
+export const Landing = ({ isAuthenticated }) => {
+  // Redirect authenticated user to dashboard
+  if (isAuthenticated) {
+    return <Redirect to='/dashboard' />;
+  }
+
   return (
     <section className='landing'>
       <div className='bg-image'></div>
@@ -25,4 +32,12 @@ export const Landing = () => {
   );
 };
 
-export default Landing;
+Landing.propTypes = {
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(Landing);
