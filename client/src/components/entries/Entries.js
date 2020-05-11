@@ -12,8 +12,8 @@ const Entries = ({ entries }) => {
         <div className='table-header'>
           <div className='table-row'>
             <div className='table-column'>Date</div>
-            <div className='table-column'>Distance</div>
-            <div className='table-column'>Time</div>
+            <div className='table-column'>Distance (km)</div>
+            <div className='table-column'>Time (mins)</div>
             <div className='table-column'>Speed (km/hr)</div>
             <div className='table-column'>Edit</div>
           </div>

@@ -8,6 +8,8 @@ import { getUserEntries } from '../../actions/entries';
 import Spinner from '../layout/Spinner';
 import Entries from '../entries/Entries';
 
+import '../../style/Dashboard.scss';
+
 const Dashboard = ({
   getUserEntries,
   auth: { user },
@@ -23,8 +25,8 @@ const Dashboard = ({
     <Fragment>
       <div className='container'>
         <div className='dashboard-inner'>
-          <h2>Dashboard</h2>
-          <p className='lead'>Welcome back {user && user.firstName}</p>
+          <h2 className='page-header'>Dashboard</h2>
+          <p className='lead'>Keep it going{user && ' ' + user.firstName}!</p>
           {entries.length > 0 ? (
             <Fragment>
               <Entries entries={entries} />
