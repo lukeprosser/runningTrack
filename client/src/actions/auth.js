@@ -10,6 +10,7 @@ import {
   SIGNIN_SUCCESS,
   SIGNIN_FAILURE,
   SIGNOUT,
+  CLEAR_ENTRIES,
 } from './types';
 import setTokenHeader from '../utils/setTokenHeader';
 
@@ -107,6 +108,10 @@ export const signin = (email, password) => async (dispatch) => {
 
 // Sign out user
 export const signout = () => (dispatch) => {
+  dispatch({
+    type: CLEAR_ENTRIES,
+  });
+
   dispatch({
     type: SIGNOUT,
   });

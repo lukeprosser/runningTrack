@@ -1,12 +1,18 @@
 /** @format */
 
 import React, { useEffect, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUserEntries } from '../../actions/entries';
 import Spinner from '../layout/Spinner';
+import Entries from '../entries/Entries';
 
-const Dashboard = ({ getUserEntries, auth, entries: { entries, loading } }) => {
+const Dashboard = ({
+  getUserEntries,
+  auth: { user },
+  entries: { entries, loading },
+}) => {
   useEffect(() => {
     getUserEntries();
   }, [getUserEntries]);
@@ -18,30 +24,19 @@ const Dashboard = ({ getUserEntries, auth, entries: { entries, loading } }) => {
       <div className='container'>
         <div className='dashboard-inner'>
           <h2>Dashboard</h2>
-          <div className='table'>
-            <div className='table-header'>
-              <div className='table-row'>
-                <div className='table-column'>Date</div>
-                <div className='table-column'>Distance</div>
-                <div className='table-column'>Time</div>
-                <div className='table-column'>Speed (km/hr)</div>
-                <div className='table-column'></div>
-              </div>
-            </div>
-            <div className='table-body'>
-              {entries.map((entry) => (
-                <div className='table-row' key={entry._id}>
-                  <div className='table-column'>{entry.entryDate}</div>
-                  <div className='table-column'>{entry.distance}</div>
-                  <div className='table-column'>{entry.time}</div>
-                  <div className='table-column'>
-                    {((entry.distance / entry.time) * 60).toFixed(2)}
-                  </div>
-                  <div className='table-column'>Edit</div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <p className='lead'>Welcome back {user && user.firstName}</p>
+          {entries.length > 0 ? (
+            <Fragment>
+              <Entries entries={entries} />
+            </Fragment>
+          ) : (
+            <Fragment>
+              <p>You haven't logged any runs yet, let's get started:</p>
+              <Link to='/add-entry' className='btn'>
+                Add Entry
+              </Link>
+            </Fragment>
+          )}
         </div>
       </div>
     </Fragment>

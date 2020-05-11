@@ -10,10 +10,8 @@ const Feedback = ({ feedback }) =>
   feedback !== null &&
   feedback.length > 0 &&
   feedback.map((fb) => (
-    <div className='feedback-inner'>
-      <div key={fb.id} className={`feedback-${fb.feedbackType}`}>
-        {fb.msg}
-      </div>
+    <div key={fb.id} className='feedback-inner'>
+      <div className={`feedback-${fb.feedbackType}`}>{fb.msg}</div>
     </div>
   ));
 

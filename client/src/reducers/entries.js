@@ -1,6 +1,11 @@
 /** @format */
 
-import { GET_ENTRIES, ENTRIES_FAILURE } from '../actions/types';
+import {
+  GET_ENTRIES,
+  ENTRIES_FAILURE,
+  CLEAR_ENTRIES,
+  ADD_ENTRY,
+} from '../actions/types';
 
 const initialState = {
   entries: [],
@@ -22,6 +27,18 @@ export default function (state = initialState, action) {
       return {
         ...state,
         error: payload,
+        loading: false,
+      };
+    case ADD_ENTRY:
+      return {
+        ...state,
+        entries: [payload, ...state.entries],
+        loading: false,
+      };
+    case CLEAR_ENTRIES:
+      return {
+        ...state,
+        entries: [],
         loading: false,
       };
     default:

@@ -3,7 +3,7 @@
 import axios from 'axios';
 import { triggerFeedback } from './feedback';
 
-import { GET_ENTRIES, ENTRIES_FAILURE } from './types';
+import { GET_ENTRIES, ENTRIES_FAILURE, ADD_ENTRY } from './types';
 
 // Get all entries for current user
 export const getUserEntries = () => async (dispatch) => {
@@ -15,6 +15,50 @@ export const getUserEntries = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    dispatch({
+      type: ENTRIES_FAILURE,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Add/update entry
+export const addEntry = (formFields, history, edit = false) => async (
+  dispatch
+) => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const res = await axios.post('/api/entries', formFields, config);
+
+    dispatch({
+      type: ADD_ENTRY,
+      payload: res.data,
+    });
+
+    dispatch(
+      triggerFeedback(
+        edit ? 'Entry updated successfully' : 'Entry added successfully',
+        'success'
+      )
+    );
+
+    if (!edit) {
+      history.push('/dashboard');
+    }
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) =>
+        dispatch(triggerFeedback(error.msg, 'warning'))
+      );
+    }
+
     dispatch({
       type: ENTRIES_FAILURE,
       payload: { msg: err.response.statusText, status: err.response.status },

@@ -16,6 +16,12 @@
     background-color: var(--warning-color);
     color: #fff;
   }
+
+  .feedback-success {
+    padding: 0.5rem;
+    background-color: var(--success-color);
+    color: #fff;
+  }
 }
 
 @media (min-width: 700px) {

@@ -13,3 +13,5 @@ export const GET_PROFILE = 'GET_PROFILE';
 export const PROFILE_FAILURE = 'PROFILE_FAILURE';
 export const GET_ENTRIES = 'GET_ENTRIES';
 export const ENTRIES_FAILURE = 'ENTRIES_FAILURE';
+export const CLEAR_ENTRIES = 'CLEAR_ENTRIES';
+export const ADD_ENTRY = 'ADD_ENTRY';
