@@ -4,10 +4,11 @@ import { combineReducers } from 'redux';
 import feedback from './feedback';
 import auth from './auth';
 import entries from './entries';
-// import profile from './profile';
+import account from './account';
 
 export default combineReducers({
   feedback,
   auth,
+  account,
   entries,
 });

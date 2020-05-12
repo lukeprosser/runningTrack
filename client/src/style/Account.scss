@@ -1,0 +1,52 @@
+/** @format */
+
+.account-inner {
+  margin: 2rem auto;
+
+  .user-banner {
+    padding: 1rem;
+    background: var(--grey-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .user-avatar {
+      max-width: 100px;
+      border-radius: 50%;
+    }
+
+    .user-info {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+  }
+
+  .user-details {
+    margin: 2rem auto;
+
+    .user-details-section {
+      margin-bottom: 1rem;
+      background: var(--grey-color);
+
+      h3 {
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+
+    .user-details-section-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1rem;
+
+      .user-details-item {
+        margin-bottom: 1rem;
+        padding: 1rem;
+
+        h4 {
+          margin-bottom: 0.8rem;
+        }
+      }
+    }
+  }
+}

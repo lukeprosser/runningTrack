@@ -8,6 +8,7 @@ import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import Feedback from './components/utils/Feedback';
 import Dashboard from './components/dashboard/Dashboard';
+import Account from './components/account/Account';
 import AddEntry from './components/entries/AddEntry';
 import PrivateRoute from './components/routing/PrivateRoute';
 
@@ -42,6 +43,7 @@ const App = () => {
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/login' component={Login} />
             <PrivateRoute exact path='/dashboard' component={Dashboard} />
+            <PrivateRoute exact path='/account' component={Account} />
             <PrivateRoute exact path='/add-entry' component={AddEntry} />
           </Switch>
         </Fragment>

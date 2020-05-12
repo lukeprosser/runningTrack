@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const ProfileSchema = new mongoose.Schema({
+const AccountSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
@@ -10,6 +10,9 @@ const ProfileSchema = new mongoose.Schema({
   dob: {
     type: Date,
     required: true,
+  },
+  location: {
+    type: String,
   },
   height: {
     type: Number,
@@ -23,4 +26,4 @@ const ProfileSchema = new mongoose.Schema({
   },
 });
 
-module.exports = Profile = mongoose.model('profile', ProfileSchema);
+module.exports = Account = mongoose.model('account', AccountSchema);

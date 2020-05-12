@@ -5,31 +5,31 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 
-const Profile = require('../../models/Profile');
+const Account = require('../../models/Account');
 const User = require('../../models/User');
 
-// @route   GET api/profile/me
-// @desc    Get current user profile
+// @route   GET api/account/me
+// @desc    Get current user account
 // @access  Private
 router.get('/me', auth, async (req, res) => {
   try {
-    const profile = await Profile.findOne({
+    const account = await Account.findOne({
       user: req.user.id,
-    }).populate('user', ['name', 'avatar']);
+    }).populate('user', ['firstName', 'lastName', 'email', 'avatar']);
 
-    if (!profile) {
-      return res.status(400).json({ msg: 'This user has no profile' });
+    if (!account) {
+      return res.status(400).json({ msg: 'This user has no account' });
     }
 
-    res.json(profile);
+    res.json(account);
   } catch (err) {
     console.log(err.message);
     res.status(500).send('Server error');
   }
 });
 
-// @route   POST api/profile
-// @desc    Create/update user profile
+// @route   POST api/account
+// @desc    Create/update user account
 // @access  Private
 router.post(
   '/',
@@ -41,36 +41,37 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { dob, height, weight } = req.body;
+    const { dob, location, height, weight } = req.body;
 
-    // Build profile object
-    const profileFields = {};
+    // Build account object
+    const accountFields = {};
 
-    profileFields.user = req.user.id;
+    accountFields.user = req.user.id;
 
-    if (dob) profileFields.dob = dob;
-    if (height) profileFields.height = height;
-    if (weight) profileFields.weight = weight;
+    if (dob) accountFields.dob = dob;
+    if (location) accountFields.location = location;
+    if (height) accountFields.height = height;
+    if (weight) accountFields.weight = weight;
 
     try {
-      let profile = await Profile.findOne({ user: req.user.id });
+      let account = await Account.findOne({ user: req.user.id });
 
-      if (profile) {
-        // Update profile if already exists
-        profile = await Profile.findOneAndUpdate(
+      if (account) {
+        // Update account if already exists
+        account = await Account.findOneAndUpdate(
           { user: req.user.id },
-          { $set: profileFields },
+          { $set: accountFields },
           { new: true }
         );
 
-        return res.json(profile);
+        return res.json(account);
       }
 
-      // Create profile
-      profile = new Profile(profileFields);
+      // Create account
+      account = new Account(accountFields);
 
-      await profile.save();
-      res.json(profile);
+      await account.save();
+      res.json(account);
     } catch (err) {
       console.log(err.message);
       res.status(500).send('Server error');
@@ -78,15 +79,15 @@ router.post(
   }
 );
 
-// @route   DELETE api/profile
-// @desc    Delete profile, user and entries
+// @route   DELETE api/account
+// @desc    Delete account, user and entries
 // @access  Private
 router.delete('/', auth, async (req, res) => {
   try {
     // TODO: Remove user entries
 
-    // Remove profile
-    await Profile.findOneAndRemove({ user: req.user.id });
+    // Remove account
+    await Account.findOneAndRemove({ user: req.user.id });
     // Remove user
     await User.findOneAndRemove({ _id: req.user.id });
 

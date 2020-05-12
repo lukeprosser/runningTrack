@@ -1,11 +1,11 @@
 /** @format */
 
 import React, { useEffect, Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUserEntries } from '../../actions/entries';
-import Spinner from '../layout/Spinner';
+import Spinner from '../utils/Spinner';
 import Entries from '../entries/Entries';
 
 import '../../style/Dashboard.scss';
@@ -26,9 +26,14 @@ const Dashboard = ({
       <div className='container'>
         <div className='dashboard-inner'>
           <h2 className='page-header'>Dashboard</h2>
-          <p className='lead'>Keep it going{user && ' ' + user.firstName}!</p>
           {entries.length > 0 ? (
             <Fragment>
+              <p className='lead'>
+                Keep it going{user && ' ' + user.firstName}!
+              </p>
+              <Link to='/add-entry' className='btn'>
+                Add Entry
+              </Link>
               <Entries entries={entries} />
             </Fragment>
           ) : (
