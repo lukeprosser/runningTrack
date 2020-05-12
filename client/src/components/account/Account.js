@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUserAccount } from '../../actions/account';
 import Spinner from '../utils/Spinner';
-import EditAccount from './EditAccount';
 import Moment from 'react-moment';
 
 import '../../style/Account.scss';
@@ -65,7 +64,7 @@ const Account = ({ getUserAccount, auth, account: { account, loading } }) => {
           {auth.isAuthenticated &&
             auth.loading === false &&
             auth.user._id === account.user._id && (
-              <Link to='/edit-account' className='btn'>
+              <Link to='/update-account' className='btn'>
                 Edit Account
               </Link>
             )}

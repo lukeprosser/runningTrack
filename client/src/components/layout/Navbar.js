@@ -12,9 +12,6 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, signout }) => {
   const memberLinks = (
     <ul>
       <li>
-        <Link to='/dashboard'>Dashboard</Link>
-      </li>
-      <li>
         <Link to='/account'>Account</Link>
       </li>
       <li>
@@ -39,7 +36,7 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, signout }) => {
   return (
     <nav className='navbar'>
       <div className='navbar-inner'>
-        <h1>
+        <h1 className='brand'>
           <Link to='/'>
             <i className='fas fa-running'></i> RunningTrack
           </Link>

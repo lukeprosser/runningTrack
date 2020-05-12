@@ -4,7 +4,8 @@
 :root {
   --primary-color: rgb(24, 24, 24);
   --secondary-color: #13a172;
-  --grey-color: #d3d3d3;
+  --grey-color: #cbcbcb;
+  --offwhite-color: #f0f0f0;
   --white-color: #f4f4f4;
   --warning-color: #ff5869;
   --success-color: #13a172;
@@ -17,10 +18,12 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1rem;
+  font-weight: 300;
   line-height: 1.6;
   color: #333;
+  letter-spacing: 1px;
 }
 
 a {
@@ -63,7 +66,8 @@ hr {
 }
 
 .btn:hover {
-  background: var(--grey-color);
+  background: none;
+  border: 1px solid var(--primary-color);
   color: var(--primary-color);
 }
 
@@ -92,6 +96,32 @@ hr {
   }
 }
 
+.table {
+  margin: 2rem auto;
+
+  .table-header {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--primary-color);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .table-body {
+    padding: 0.5rem;
+  }
+
+  .table-row {
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+  }
+}
+
+.sm-hide {
+  display: none;
+}
+
 @media (min-width: 700px) {
   hr {
     width: 70%;
@@ -99,5 +129,9 @@ hr {
 
   .form {
     width: 50%;
+  }
+
+  .sm-hide {
+    display: inline-block;
   }
 }

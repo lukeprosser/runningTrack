@@ -1,6 +1,6 @@
 /** @format */
 
-import { GET_ACCOUNT, ACCOUNT_FAILURE } from '../actions/types';
+import { GET_ACCOUNT, UPDATE_ACCOUNT, ACCOUNT_FAILURE } from '../actions/types';
 
 const initialState = {
   account: null,
@@ -13,6 +13,7 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case GET_ACCOUNT:
+    case UPDATE_ACCOUNT:
       return {
         ...state,
         account: payload,

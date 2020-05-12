@@ -41,9 +41,9 @@ const Signup = ({ triggerFeedback, signup, isAuthenticated }) => {
     }
   };
 
-  // Redirect on sign up
+  // Redirect on sign up to enter account details
   if (isAuthenticated) {
-    return <Redirect to='/dashboard' />;
+    return <Redirect to='/update-account' />;
   }
 
   return (
@@ -106,7 +106,7 @@ const Signup = ({ triggerFeedback, signup, isAuthenticated }) => {
             <input type='submit' className='btn' value='Register' />
           </form>
           <hr />
-          <p className='my-1'>
+          <p>
             Been here before?{' '}
             <Link to='/login' className='btn'>
               Login

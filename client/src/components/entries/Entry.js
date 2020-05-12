@@ -10,10 +10,10 @@ const Entry = ({ entry: { entryDate, distance, time } }) => {
         <div className='table-column'>
           <Moment format='DD/MM/YY'>{entryDate}</Moment>
         </div>
-        <div className='table-column'>{distance}</div>
-        <div className='table-column'>{time}</div>
+        <div className='table-column'>{distance} km</div>
+        <div className='table-column'>{time} mins</div>
         <div className='table-column'>
-          {((distance / time) * 60).toFixed(2)}
+          {((distance / time) * 60).toFixed(2)} km/hr
         </div>
         <div className='table-column'>
           <i className='far fa-edit'></i>

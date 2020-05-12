@@ -3,32 +3,41 @@
 .account-inner {
   margin: 2rem auto;
 
+  text-align: center;
+
   .user-banner {
+    margin-bottom: 1rem;
     padding: 1rem;
-    background: var(--grey-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    background: var(--offwhite-color);
+    text-align: center;
 
     .user-avatar {
-      max-width: 100px;
+      max-width: 70px;
       border-radius: 50%;
     }
 
     .user-info {
       font-size: 1.1rem;
-      font-weight: 600;
+
+      .user-name {
+        font-weight: 400;
+      }
     }
   }
 
   .user-details {
-    margin: 2rem auto;
+    margin-bottom: 1rem;
 
     .user-details-section {
       margin-bottom: 1rem;
-      background: var(--grey-color);
+      padding: 1rem;
+      background: var(--offwhite-color);
 
       h3 {
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        border-bottom: 1px solid var(--primary-color);
+        font-weight: 600;
         text-align: center;
         text-transform: uppercase;
       }
@@ -40,12 +49,26 @@
       grid-gap: 1rem;
 
       .user-details-item {
-        margin-bottom: 1rem;
         padding: 1rem;
 
         h4 {
           margin-bottom: 0.8rem;
+          font-weight: 400;
         }
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .account-inner {
+    .user-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .user-avatar {
+        max-width: 100px;
       }
     }
   }

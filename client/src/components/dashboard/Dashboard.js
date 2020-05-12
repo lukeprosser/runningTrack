@@ -19,6 +19,28 @@ const Dashboard = ({
     getUserEntries();
   }, [getUserEntries]);
 
+  // console.log('account', account);
+
+  // return account.loading || entries.loading || entries.entries.length === 0 ? (
+  //   <Spinner />
+  // ) : (
+  //   <Fragment>
+  //     <div className='container'>
+  //       <div className='dashboard-inner'>
+  //         <h2 className='page-header'>Dashboard</h2>
+  //         {account !== null && (
+  //           <p className='lead'>
+  //             To get started recording your runs, please complete your account details
+  //             <Link to='/account' className='btn'>
+  //               Update Account
+  //             </Link>
+  //           </p>
+  //         )}
+  //       </div>
+  //     </div>
+  //   </Fragment>
+  // );
+
   return loading && entries.length === 0 ? (
     <Spinner />
   ) : (
@@ -30,18 +52,20 @@ const Dashboard = ({
             <Fragment>
               <p className='lead'>
                 Keep it going{user && ' ' + user.firstName}!
+                <Link to='/add-entry' className='btn'>
+                  Add Entry
+                </Link>
               </p>
-              <Link to='/add-entry' className='btn'>
-                Add Entry
-              </Link>
               <Entries entries={entries} />
             </Fragment>
           ) : (
             <Fragment>
-              <p>You haven't logged any runs yet, let's get started:</p>
-              <Link to='/add-entry' className='btn'>
-                Add Entry
-              </Link>
+              <p>
+                You haven't logged any runs yet, let's get started:
+                <Link to='/add-entry' className='btn'>
+                  Add Entry
+                </Link>
+              </p>
             </Fragment>
           )}
         </div>
