@@ -5,6 +5,7 @@ import {
   ENTRIES_FAILURE,
   CLEAR_ENTRIES,
   ADD_ENTRY,
+  DELETE_ENTRY,
 } from '../actions/types';
 
 const initialState = {
@@ -33,6 +34,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         entries: [payload, ...state.entries],
+        loading: false,
+      };
+    case DELETE_ENTRY:
+      return {
+        ...state,
+        entries: state.entries.filter((entry) => entry._id !== payload),
         loading: false,
       };
     case CLEAR_ENTRIES:

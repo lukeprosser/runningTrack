@@ -1,1 +1,37 @@
 /** @format */
+
+.entries-inner {
+  .table {
+    margin: 2rem auto;
+
+    .table-header {
+      padding: 0.5rem;
+      border-bottom: 1px solid var(--primary-color);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .table-body {
+      padding: 0.5rem;
+    }
+
+    .table-row {
+      padding: 0.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr) 10px;
+      justify-items: center;
+
+      .table-column {
+        display: flex;
+        align-items: center;
+      }
+
+      .delete {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--warning-color);
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
 import axios from 'axios';
 import { triggerFeedback } from './feedback';
 
-import { GET_ENTRIES, ENTRIES_FAILURE, ADD_ENTRY } from './types';
+import { GET_ENTRIES, ENTRIES_FAILURE, ADD_ENTRY, DELETE_ENTRY } from './types';
 
 // Get all entries for current user
 export const getUserEntries = () => async (dispatch) => {
@@ -59,6 +59,25 @@ export const addEntry = (formFields, history, edit = false) => async (
       );
     }
 
+    dispatch({
+      type: ENTRIES_FAILURE,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+// Remove entry
+export const deleteEntry = (entryId) => async (dispatch) => {
+  try {
+    await axios.delete(`/api/entries/me/${entryId}`);
+
+    dispatch({
+      type: DELETE_ENTRY,
+      payload: entryId,
+    });
+
+    dispatch(triggerFeedback('Entry deleted successfully', 'success'));
+  } catch (err) {
     dispatch({
       type: ENTRIES_FAILURE,
       payload: { msg: err.response.statusText, status: err.response.status },
