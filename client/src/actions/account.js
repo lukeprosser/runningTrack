@@ -3,7 +3,14 @@
 import axios from 'axios';
 import { triggerFeedback } from './feedback';
 
-import { GET_ACCOUNT, UPDATE_ACCOUNT, ACCOUNT_FAILURE } from './types';
+import {
+  GET_ACCOUNT,
+  UPDATE_ACCOUNT,
+  ACCOUNT_FAILURE,
+  CLEAR_ACCOUNT,
+  DELETE_ACCOUNT,
+  CLEAR_ENTRIES,
+} from './types';
 
 // Get user account
 export const getUserAccount = () => async (dispatch) => {
@@ -15,6 +22,8 @@ export const getUserAccount = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    dispatch({ CLEAR_ACCOUNT });
+
     dispatch({
       type: ACCOUNT_FAILURE,
       payload: { msg: err.response.statusText, status: err.response.status },
@@ -65,5 +74,29 @@ export const updateUserAccount = (formFields, history, edit = false) => async (
       type: ACCOUNT_FAILURE,
       payload: { msg: err.response.statusText, status: err.response.status },
     });
+  }
+};
+
+// Delete user account
+export const deleteUserAccount = () => async (dispatch) => {
+  if (
+    window.confirm(
+      'Are you sure you want to delete your account? This cannot be undone.'
+    )
+  ) {
+    try {
+      await axios.delete('/api/account');
+
+      dispatch({ type: CLEAR_ENTRIES });
+      dispatch({ type: CLEAR_ACCOUNT });
+      dispatch({ type: DELETE_ACCOUNT });
+
+      dispatch(triggerFeedback('Your account has been deleted', 'success'));
+    } catch (err) {
+      dispatch({
+        type: ACCOUNT_FAILURE,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    }
   }
 };

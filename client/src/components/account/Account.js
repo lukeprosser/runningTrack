@@ -4,13 +4,18 @@ import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getUserAccount } from '../../actions/account';
+import { getUserAccount, deleteUserAccount } from '../../actions/account';
 import Spinner from '../utils/Spinner';
 import Moment from 'react-moment';
 
 import '../../style/Account.scss';
 
-const Account = ({ getUserAccount, auth, account: { account, loading } }) => {
+const Account = ({
+  getUserAccount,
+  deleteUserAccount,
+  auth,
+  account: { account, loading },
+}) => {
   useEffect(() => {
     getUserAccount();
   }, [getUserAccount]);
@@ -64,9 +69,17 @@ const Account = ({ getUserAccount, auth, account: { account, loading } }) => {
           {auth.isAuthenticated &&
             auth.loading === false &&
             auth.user._id === account.user._id && (
-              <Link to='/update-account' className='btn'>
-                Edit Account
-              </Link>
+              <Fragment>
+                <Link to='/update-account' className='btn'>
+                  Edit Account
+                </Link>
+                <button
+                  className='btn btn-warning'
+                  onClick={() => deleteUserAccount()}
+                >
+                  Delete Account
+                </button>
+              </Fragment>
             )}
         </div>
       </div>
@@ -76,6 +89,7 @@ const Account = ({ getUserAccount, auth, account: { account, loading } }) => {
 
 Account.propTypes = {
   getUserAccount: PropTypes.func.isRequired,
+  deleteUserAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   account: PropTypes.object.isRequired,
 };
@@ -85,4 +99,6 @@ const mapStateToProps = (state) => ({
   account: state.account,
 });
 
-export default connect(mapStateToProps, { getUserAccount })(Account);
+export default connect(mapStateToProps, { getUserAccount, deleteUserAccount })(
+  Account
+);

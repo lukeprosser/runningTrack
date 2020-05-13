@@ -1,6 +1,11 @@
 /** @format */
 
-import { GET_ACCOUNT, UPDATE_ACCOUNT, ACCOUNT_FAILURE } from '../actions/types';
+import {
+  GET_ACCOUNT,
+  UPDATE_ACCOUNT,
+  ACCOUNT_FAILURE,
+  CLEAR_ACCOUNT,
+} from '../actions/types';
 
 const initialState = {
   account: null,
@@ -23,6 +28,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         error: payload,
+        loading: false,
+      };
+    case CLEAR_ACCOUNT:
+      return {
+        ...state,
+        account: null,
         loading: false,
       };
     default:

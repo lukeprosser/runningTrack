@@ -68,19 +68,25 @@ export const addEntry = (formFields, history, edit = false) => async (
 
 // Remove entry
 export const deleteEntry = (entryId) => async (dispatch) => {
-  try {
-    await axios.delete(`/api/entries/me/${entryId}`);
+  if (
+    window.confirm(
+      'Are you sure you want to delete this entry? This cannot be undone.'
+    )
+  ) {
+    try {
+      await axios.delete(`/api/entries/me/${entryId}`);
 
-    dispatch({
-      type: DELETE_ENTRY,
-      payload: entryId,
-    });
+      dispatch({
+        type: DELETE_ENTRY,
+        payload: entryId,
+      });
 
-    dispatch(triggerFeedback('Entry deleted successfully', 'success'));
-  } catch (err) {
-    dispatch({
-      type: ENTRIES_FAILURE,
-      payload: { msg: err.response.statusText, status: err.response.status },
-    });
+      dispatch(triggerFeedback('Entry deleted successfully', 'success'));
+    } catch (err) {
+      dispatch({
+        type: ENTRIES_FAILURE,
+        payload: { msg: err.response.statusText, status: err.response.status },
+      });
+    }
   }
 };
