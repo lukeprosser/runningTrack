@@ -1,12 +1,12 @@
 /** @format */
 
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updateUserAccount, getUserAccount } from '../../actions/account';
+import { updateUserAccount } from '../../actions/account';
 
-import '../../style/UpdateAccount.scss';
+import '../../style/CreateAccount.scss';
 
 const CreateAccount = ({ updateUserAccount, history }) => {
   const [formFields, setFormFields] = useState({
@@ -30,7 +30,7 @@ const CreateAccount = ({ updateUserAccount, history }) => {
   return (
     <Fragment>
       <div className='container'>
-        <div className='update-account-inner'>
+        <div className='create-account-inner'>
           <h2 className='page-header'>Create Your Account</h2>
           <p className='lead'>
             To get started recording your runs, please complete your account
@@ -87,14 +87,6 @@ const CreateAccount = ({ updateUserAccount, history }) => {
 
 CreateAccount.propTypes = {
   updateUserAccount: PropTypes.func.isRequired,
-  getUserAccount: PropTypes.func.isRequired,
-  account: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  account: state.account,
-});
-
-export default connect(mapStateToProps, { updateUserAccount, getUserAccount })(
-  withRouter(CreateAccount)
-);
+export default connect(null, { updateUserAccount })(withRouter(CreateAccount));

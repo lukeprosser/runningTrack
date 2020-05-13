@@ -25,12 +25,19 @@ const UpdateAccount = ({
     getUserAccount();
 
     setFormFields({
-      dob: loading || !account.dob ? '' : account.dob,
+      dob: loading || !account.dob ? '' : account.dob.split('T')[0],
       location: loading || !account.location ? '' : account.location,
       height: loading || !account.height ? '' : account.height,
       weight: loading || !account.weight ? '' : account.weight,
     });
-  }, [loading, getUserAccount]);
+  }, [
+    loading,
+    getUserAccount,
+    account.dob,
+    account.location,
+    account.height,
+    account.weight,
+  ]);
 
   const { dob, location, height, weight } = formFields;
 
@@ -48,6 +55,55 @@ const UpdateAccount = ({
       <div className='container'>
         <div className='update-account-inner'>
           <h2 className='page-header'>Update Your Account</h2>
+          <p className='lead'>
+            Amend your account details by simply editing the fields below:
+          </p>
+          <form className='form' onSubmit={(e) => onSubmit(e)}>
+            <div className='form-group'>
+              <label htmlFor='dob'>Date of birth (required)</label>
+              <input
+                type='date'
+                name='dob'
+                value={dob}
+                onChange={(e) => onChange(e)}
+                required
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='location'>Location</label>
+              <input
+                type='text'
+                placeholder='Town/City'
+                name='location'
+                value={location}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='location'>Height (cm)</label>
+              <input
+                type='number'
+                placeholder='Enter your height in centimetres'
+                name='height'
+                value={height}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='weight'>Weight (kg)</label>
+              <input
+                type='number'
+                placeholder='Enter your weight in kilograms'
+                name='weight'
+                value={weight}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+            <Link to='/account' className='btn'>
+              Back
+            </Link>
+            <input type='submit' className='btn' value='Update' />
+          </form>
         </div>
       </div>
     </Fragment>
