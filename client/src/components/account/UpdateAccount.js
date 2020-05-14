@@ -99,11 +99,12 @@ const UpdateAccount = ({
                 onChange={(e) => onChange(e)}
               />
             </div>
-            <Link to='/account' className='btn'>
-              Back
-            </Link>
             <input type='submit' className='btn' value='Update' />
           </form>
+          <hr />
+          <Link to='/account' className='btn'>
+            Back
+          </Link>
         </div>
       </div>
     </Fragment>

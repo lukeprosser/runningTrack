@@ -1,14 +1,26 @@
 /** @format */
 
-.signup-inner {
-  margin: 1rem auto;
-  text-align: center;
+.container {
+  position: relative;
+  height: 84vh;
 
-  .form {
-    input[type='submit'] {
-      width: 100%;
-      margin: 1rem 0;
-      padding: 0.7rem 1.3rem;
+  .signup-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    margin: 16vh auto 8vh;
+    text-align: center;
+  }
+}
+
+@media (min-width: 700px) {
+  .container {
+    height: 92vh;
+
+    .signup-inner {
+      margin: 0;
     }
   }
 }
