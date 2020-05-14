@@ -15,7 +15,7 @@ const Entries = ({ entries }) => {
               <div className='table-column'>Date</div>
               <div className='table-column'>Distance</div>
               <div className='table-column'>Time</div>
-              <div className='table-column'>Speed</div>
+              <div className='table-column sm-hide'>Speed</div>
               <div className='table-column'> </div>
             </div>
           </div>

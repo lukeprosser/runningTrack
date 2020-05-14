@@ -2,10 +2,11 @@
 
 /* Global */
 :root {
-  --primary-color: rgb(24, 24, 24);
+  --primary-color: #f02525;
+  // $primary-color: #ff5829;
   --secondary-color: #13a172;
   --grey-color: #cbcbcb;
-  --offwhite-color: #f0f0f0;
+  --offwhite-color: #f5f5f5;
   --white-color: #f4f4f4;
   --warning-color: #ff5869;
   --success-color: #13a172;
@@ -122,10 +123,6 @@ button.btn {
   }
 }
 
-.sm-hide {
-  display: none;
-}
-
 @media (min-width: 700px) {
   hr {
     width: 70%;
@@ -133,9 +130,5 @@ button.btn {
 
   .form {
     width: 50%;
-  }
-
-  .sm-hide {
-    display: inline-block;
   }
 }

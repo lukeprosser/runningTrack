@@ -33,11 +33,11 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
+          <Feedback />
           <Switch>
             <Route exact path='/' component={Landing} />
             <Route component={Routes} />
           </Switch>
-          <Feedback />
         </Fragment>
       </Router>
     </Provider>

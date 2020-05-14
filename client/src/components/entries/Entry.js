@@ -15,7 +15,7 @@ const Entry = ({ entry: { _id, entryDate, distance, time }, deleteEntry }) => {
         </div>
         <div className='table-column'>{distance} km</div>
         <div className='table-column'>{time} mins</div>
-        <div className='table-column'>
+        <div className='table-column sm-hide'>
           {((distance / time) * 60).toFixed(2)} km/hr
         </div>
         <div className='table-column'>

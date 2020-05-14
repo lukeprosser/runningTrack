@@ -1,12 +1,14 @@
 /** @format */
 
-import React, { useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getUserEntries } from '../../actions/entries';
 import Spinner from '../utils/Spinner';
+import DashboardTop from './DashboardTop';
 import Entries from '../entries/Entries';
+import Pagination from '../layout/Pagination';
 
 import '../../style/Dashboard.scss';
 
@@ -19,27 +21,16 @@ const Dashboard = ({
     getUserEntries();
   }, [getUserEntries]);
 
-  // console.log('account', account);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [entriesPerPage] = useState(10);
 
-  // return account.loading || entries.loading || entries.entries.length === 0 ? (
-  //   <Spinner />
-  // ) : (
-  //   <Fragment>
-  //     <div className='container'>
-  //       <div className='dashboard-inner'>
-  //         <h2 className='page-header'>Dashboard</h2>
-  //         {account !== null && (
-  //           <p className='lead'>
-  //             To get started recording your runs, please complete your account details
-  //             <Link to='/account' className='btn'>
-  //               Update Account
-  //             </Link>
-  //           </p>
-  //         )}
-  //       </div>
-  //     </div>
-  //   </Fragment>
-  // );
+  // Get latest entries
+  const lastEntryIndex = currentPage * entriesPerPage;
+  const firstEntryIndex = lastEntryIndex - entriesPerPage;
+  const latestEntries = entries.slice(firstEntryIndex, lastEntryIndex);
+
+  // Change page
+  const changePage = (pageNumber) => setCurrentPage(pageNumber);
 
   return loading && entries.length === 0 ? (
     <Spinner />
@@ -52,11 +43,17 @@ const Dashboard = ({
             <Fragment>
               <p className='lead'>
                 Keep it going{user && ' ' + user.firstName}!
-                <Link to='/add-entry' className='btn'>
-                  Add Entry
-                </Link>
               </p>
-              <Entries entries={entries} />
+              <DashboardTop entries={entries} />
+              <Entries entries={latestEntries} />
+              {entries.length > 10 && (
+                <Pagination
+                  entriesPerPage={entriesPerPage}
+                  totalEntries={entries.length}
+                  currentPage={currentPage}
+                  changePage={changePage}
+                />
+              )}
             </Fragment>
           ) : (
             <Fragment>

@@ -2,7 +2,7 @@
 
 .entries-inner {
   .table {
-    margin: 2rem auto;
+    margin: 1rem auto;
 
     .table-header {
       padding: 0.5rem;
@@ -18,12 +18,15 @@
     .table-row {
       padding: 0.5rem;
       display: grid;
-      grid-template-columns: repeat(4, 1fr) 10px;
+      grid-template-columns: repeat(3, 1fr) 10px;
       justify-items: center;
 
       .table-column {
         display: flex;
         align-items: center;
+      }
+      .table-column.sm-hide {
+        display: none;
       }
 
       .delete {
@@ -31,6 +34,20 @@
         font-weight: 700;
         color: var(--warning-color);
         cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .entries-inner {
+    .table {
+      .table-row {
+        grid-template-columns: repeat(4, 1fr) 10px;
+
+        .table-column.sm-hide {
+          display: flex;
+        }
       }
     }
   }

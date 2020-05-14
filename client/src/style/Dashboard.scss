@@ -3,4 +3,61 @@
 .dashboard-inner {
   margin: 2rem auto;
   text-align: center;
+
+  .dashboard-top {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: var(--offwhite-color);
+
+    .dashboard-stats,
+    .dashboard-awards {
+      margin-bottom: 1rem;
+
+      .dashboard-item {
+        font-weight: 400;
+
+        i {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  ul.pagination {
+    display: flex;
+    justify-content: center;
+
+    li.page-item {
+      margin: 0 1rem;
+
+      button.page-link {
+        width: 20px;
+        height: 20px;
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+        cursor: pointer;
+      }
+      button.page-link:hover,
+      button.page-link.active {
+        background: var(--primary-color);
+        color: var(--white-color);
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .dashboard-inner {
+    .dashboard-top {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .dashboard-stats,
+      .dashboard-awards {
+        margin-bottom: 0;
+        text-align: left;
+      }
+    }
+  }
 }

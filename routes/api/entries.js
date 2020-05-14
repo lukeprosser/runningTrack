@@ -58,7 +58,9 @@ router.post(
 // @access  Private
 router.get('/me', auth, async (req, res) => {
   try {
-    const entries = await Entry.find({ user: req.user.id }).sort({ date: -1 });
+    const entries = await Entry.find({ user: req.user.id }).sort({
+      entryDate: -1,
+    });
     res.json(entries);
   } catch (err) {
     console.log(err.message);
