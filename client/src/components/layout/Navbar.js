@@ -38,7 +38,7 @@ export const Navbar = ({ auth: { isAuthenticated, loading }, signout }) => {
       <div className='navbar-inner'>
         <h1 className='brand'>
           <Link to='/'>
-            <i className='fas fa-running'></i> RunningTrack
+            <i className='fas fa-running'></i> Running<span>Track</span>
           </Link>
         </h1>
         {!loading && (

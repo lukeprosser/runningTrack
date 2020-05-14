@@ -41,10 +41,7 @@ const Dashboard = ({
           <h2 className='page-header'>Dashboard</h2>
           {entries.length > 0 ? (
             <Fragment>
-              <p className='lead'>
-                Keep it going{user && ' ' + user.firstName}!
-              </p>
-              <DashboardTop entries={entries} />
+              <DashboardTop entries={entries} user={user} />
               <Entries entries={latestEntries} />
               {entries.length > 10 && (
                 <Pagination

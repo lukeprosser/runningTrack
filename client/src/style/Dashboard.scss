@@ -6,8 +6,12 @@
 
   .dashboard-top {
     margin-top: 1rem;
-    padding: 0.5rem;
+    padding: 1rem;
     background: var(--offwhite-color);
+
+    .lead {
+      margin-bottom: 1rem;
+    }
 
     .dashboard-stats,
     .dashboard-awards {
@@ -49,14 +53,16 @@
 @media (min-width: 700px) {
   .dashboard-inner {
     .dashboard-top {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
+      .dashboard-categories {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
 
-      .dashboard-stats,
-      .dashboard-awards {
-        margin-bottom: 0;
-        text-align: left;
+        .dashboard-stats,
+        .dashboard-awards {
+          margin-bottom: 0;
+          text-align: left;
+        }
       }
     }
   }

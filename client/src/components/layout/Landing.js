@@ -17,7 +17,9 @@ export const Landing = ({ isAuthenticated }) => {
     <section className='landing'>
       <div className='bg-image'></div>
       <div className='landing-inner'>
-        <h1>RunningTrack</h1>
+        <h1>
+          <i className='fas fa-running'></i> Running<span>Track</span>
+        </h1>
         <p className='lead'>Record your runs and track your progress</p>
         <div className='cta'>
           <Link to='/signup' className='btn btn-primary'>

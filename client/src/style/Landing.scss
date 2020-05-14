@@ -2,7 +2,7 @@
 
 .landing {
   position: relative;
-  height: 84vh;
+  height: 86vh;
   overflow: hidden;
 
   .bg-image {
@@ -35,6 +35,10 @@
       font-size: 2.5rem;
       line-height: 1.2;
       margin-bottom: 1.5rem;
+
+      span {
+        font-weight: 400;
+      }
     }
 
     .lead {
@@ -49,7 +53,7 @@
 
 @media (min-width: 700px) {
   .landing {
-    height: 92vh;
+    height: 94vh;
 
     .landing-inner h1 {
       font-size: 3rem;
