@@ -58,12 +58,12 @@ const Dashboard = ({
             </Fragment>
           ) : (
             <Fragment>
-              <p>
+              <p class='lead'>
                 You haven't logged any runs yet, let's get started:
-                <Link to='/add-entry' className='btn'>
-                  Add Entry
-                </Link>
               </p>
+              <Link to='/add-entry' className='btn'>
+                Add Entry
+              </Link>
             </Fragment>
           )}
         </div>

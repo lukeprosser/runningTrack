@@ -43,7 +43,7 @@ const Signup = ({ triggerFeedback, signup, isAuthenticated }) => {
 
   // Redirect on sign up to enter account details
   if (isAuthenticated) {
-    return <Redirect to='/update-account' />;
+    return <Redirect to='/create-account' />;
   }
 
   return (

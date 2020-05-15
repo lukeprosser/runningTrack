@@ -1,8 +1,7 @@
 /** @format */
 
 .account-inner {
-  margin: 2rem auto;
-
+  padding: 2rem 0;
   text-align: center;
 
   .user-banner {
@@ -37,14 +36,16 @@
         margin-bottom: 0.5rem;
         padding: 0.5rem;
         border-bottom: 1px solid var(--primary-color);
-        font-weight: 600;
+        font-weight: 400;
         text-align: center;
         text-transform: uppercase;
       }
     }
 
     .user-details-section-items {
+      display: -ms-grid;
       display: grid;
+      -ms-grid-columns: 1fr 1rem 1fr;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 1rem;
 
@@ -63,8 +64,14 @@
 @media (min-width: 700px) {
   .account-inner {
     .user-banner {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
+      -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
       justify-content: space-evenly;
 
       .user-avatar {

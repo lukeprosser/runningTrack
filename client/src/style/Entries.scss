@@ -20,13 +20,19 @@
     }
 
     .table-row {
+      display: -ms-grid;
       display: grid;
+      -ms-grid-columns: repeat(3, 1fr) 30px;
       grid-template-columns: repeat(3, 1fr) 30px;
       justify-items: center;
       border-bottom: 1px solid #ddd;
 
       .table-column {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
       }
       .table-column.sm-hide {
@@ -60,9 +66,12 @@
   .entries-inner {
     .table {
       .table-row {
+        -ms-grid-columns: repeat(4, 1fr) 30px;
         grid-template-columns: repeat(4, 1fr) 30px;
 
         .table-column.sm-hide {
+          display: -webkit-box;
+          display: -ms-flexbox;
           display: flex;
         }
       }

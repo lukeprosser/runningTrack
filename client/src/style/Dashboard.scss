@@ -1,91 +1,114 @@
 /** @format */
 
-.dashboard-inner {
-  margin: 2rem auto;
-  text-align: center;
-
-  .dashboard-top {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: var(--offwhite-color);
-    border-radius: 3px;
+.container {
+  .dashboard-inner {
+    padding: 2rem 0;
+    text-align: center;
 
     .lead {
       margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--primary-color);
     }
 
-    .dashboard-categories {
-      h3 {
-        margin-bottom: 0.3rem;
-        font-size: 1rem;
-        font-weight: 400;
-        text-transform: uppercase;
+    .dashboard-top {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--offwhite-color);
+      border-radius: 3px;
+
+      .lead {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--primary-color);
       }
 
-      .dashboard-items {
-        margin-bottom: 1rem;
+      .dashboard-categories {
+        h3 {
+          margin-bottom: 0.3rem;
+          font-size: 1rem;
+          font-weight: 400;
+          text-transform: uppercase;
+        }
 
-        .dashboard-item {
-          font-size: 0.9rem;
+        .dashboard-items {
+          margin-bottom: 1rem;
 
-          i {
-            font-size: 1rem;
-            color: var(--primary-color);
+          .dashboard-item {
+            font-size: 0.9rem;
+
+            i {
+              font-size: 1rem;
+              color: var(--primary-color);
+            }
           }
         }
       }
     }
-  }
 
-  ul.pagination {
-    display: flex;
-    justify-content: center;
+    ul.pagination {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
 
-    li.page-item {
-      margin: 0 1rem;
+      li.page-item {
+        margin: 0 1rem;
 
-      button.page-link {
-        width: 20px;
-        height: 20px;
-        background: transparent;
-        border: 1px solid var(--primary-color);
-        border-radius: 3px;
-        color: var(--primary-color);
-        cursor: pointer;
-      }
-      button.page-link:hover,
-      button.page-link.active {
-        background: var(--primary-color);
-        color: var(--white-color);
+        button.page-link {
+          width: 20px;
+          height: 20px;
+          background: transparent;
+          border: 1px solid var(--primary-color);
+          border-radius: 3px;
+          color: var(--primary-color);
+          cursor: pointer;
+        }
+        button.page-link:hover,
+        button.page-link.active {
+          background: var(--primary-color);
+          color: var(--white-color);
+        }
       }
     }
   }
 }
 
 @media (min-width: 700px) {
-  .dashboard-inner {
-    .dashboard-top {
-      .dashboard-categories {
-        display: flex;
-        justify-content: space-evenly;
+  .container {
+    .dashboard-inner {
+      .dashboard-top {
+        .dashboard-categories {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: space-evenly;
+          -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 
-        .dashboard-items {
-          margin-bottom: 0;
-          text-align: left;
+          .dashboard-items {
+            margin-bottom: 0;
+            text-align: left;
 
-          .dashboard-item {
-            i {
-              font-size: 1.1rem;
+            .dashboard-item {
+              i {
+                font-size: 1.1rem;
+              }
             }
           }
-        }
 
-        .dashboard-entry {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+          .dashboard-entry {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+          }
         }
       }
     }
