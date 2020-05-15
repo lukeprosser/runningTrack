@@ -1,6 +1,26 @@
 /** @format */
 
-.create-account-inner {
-  margin: 2rem auto;
-  text-align: center;
+.container {
+  position: relative;
+  height: 86vh;
+
+  .create-account-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    margin: 16vh auto 8vh;
+    text-align: center;
+  }
+}
+
+@media (min-width: 700px) {
+  .container {
+    height: 94vh;
+
+    .create-account-inner {
+      margin: 0;
+    }
+  }
 }

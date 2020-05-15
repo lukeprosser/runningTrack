@@ -8,6 +8,7 @@
     margin-top: 1rem;
     padding: 1rem;
     background: var(--offwhite-color);
+    border-radius: 3px;
 
     .lead {
       margin-bottom: 1rem;
@@ -37,7 +38,9 @@
       button.page-link {
         width: 20px;
         height: 20px;
+        background: transparent;
         border: 1px solid var(--primary-color);
+        border-radius: 3px;
         color: var(--primary-color);
         cursor: pointer;
       }

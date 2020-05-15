@@ -6,6 +6,8 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addEntry } from '../../actions/entries';
 
+import '../../style/AddEntry.scss';
+
 const AddEntry = ({ addEntry, history }) => {
   const [formFields, setFormFields] = useState({
     entryDate: '',
@@ -31,7 +33,7 @@ const AddEntry = ({ addEntry, history }) => {
   return (
     <Fragment>
       <div className='container'>
-        <div className='signup-inner'>
+        <div className='addentry-inner'>
           <h2 className='page-header'>Add Entry</h2>
           <p className='lead'>Log the details of your latest session:</p>
           <form className='form' onSubmit={(e) => onSubmit(e)}>

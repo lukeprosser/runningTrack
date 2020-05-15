@@ -4,13 +4,13 @@
   position: relative;
   height: 86vh;
 
-  .update-account-inner {
+  .addentry-inner {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    margin: 20vh auto 8vh;
+    margin: 11vh auto 8vh;
     text-align: center;
   }
 }
@@ -19,7 +19,7 @@
   .container {
     height: 94vh;
 
-    .update-account-inner {
+    .addentry-inner {
       margin: 0;
     }
   }
