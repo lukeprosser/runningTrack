@@ -5,7 +5,7 @@ import Entry from './Entry';
 
 import '../../style/Entries.scss';
 
-const Entries = ({ entries }) => {
+const Entries = ({ entries, topSpeed }) => {
   return (
     <Fragment>
       <div className='entries-inner'>
@@ -21,7 +21,7 @@ const Entries = ({ entries }) => {
           </div>
           <div className='table-body'>
             {entries.map((entry) => (
-              <Entry key={entry._id} entry={entry} />
+              <Entry key={entry._id} entry={entry} topSpeed={topSpeed} />
             ))}
           </div>
         </div>

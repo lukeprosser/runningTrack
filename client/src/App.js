@@ -4,8 +4,8 @@ import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Routes from './components/routing/Routes';
-import Navbar from './components/layout/Navbar';
-import Landing from './components/layout/Landing';
+import Navbar from './components/general/Navbar';
+import Landing from './components/general/Landing';
 import Feedback from './components/utils/Feedback';
 
 // Redux

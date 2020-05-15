@@ -8,7 +8,7 @@ import { getUserEntries } from '../../actions/entries';
 import Spinner from '../utils/Spinner';
 import DashboardTop from './DashboardTop';
 import Entries from '../entries/Entries';
-import Pagination from '../layout/Pagination';
+import Pagination from '../general/Pagination';
 
 import '../../style/Dashboard.scss';
 
@@ -32,6 +32,10 @@ const Dashboard = ({
   // Change page
   const changePage = (pageNumber) => setCurrentPage(pageNumber);
 
+  // Calculate fastest speed
+  const speeds = entries.map((entry) => (entry.distance / entry.time) * 60);
+  const topSpeed = speeds.sort((a, b) => a - b)[0];
+
   return loading && entries.length === 0 ? (
     <Spinner />
   ) : (
@@ -41,8 +45,8 @@ const Dashboard = ({
           <h2 className='page-header'>Dashboard</h2>
           {entries.length > 0 ? (
             <Fragment>
-              <DashboardTop entries={entries} user={user} />
-              <Entries entries={latestEntries} />
+              <DashboardTop entries={entries} user={user} topSpeed={topSpeed} />
+              <Entries entries={latestEntries} topSpeed={topSpeed} />
               {entries.length > 10 && (
                 <Pagination
                   entriesPerPage={entriesPerPage}

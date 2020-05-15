@@ -48,6 +48,11 @@
     .table-row:last-of-type {
       border-bottom: 2px solid var(--primary-color);
     }
+
+    .table-row.table-row-highlight {
+      font-weight: 400;
+      color: var(--primary-color);
+    }
   }
 }
 

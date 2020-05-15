@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 
 // Utilities
 import PrivateRoute from '../routing/PrivateRoute';
-import NotFound from '../layout/NotFound';
+import NotFound from '../general/NotFound';
 // Authorisation
 import Signup from '../auth/Signup';
 import Login from '../auth/Login';
