@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://lukeadmin:aEtkGdzDIu6DOIAR@runningtrack-nj5cm.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "secretToken"
+}

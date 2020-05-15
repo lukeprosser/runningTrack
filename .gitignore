@@ -1,7 +1,6 @@
 # Server
 node_modules/
 config/default.json
-config/production.json
 
 # Client
 client/node_modules/
