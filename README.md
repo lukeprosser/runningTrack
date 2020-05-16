@@ -24,6 +24,8 @@ All user information is stored in MongoDB Atlas for persistent data.
 
 On entry to the site, all visitors are greeted with a full screen landing page featuring a call-to-action.
 
+![Landing page](/images/01-landing-page.png)
+
 Visitors are directed to a sign-up page for new users and a login page for existing users.
 
 There are two distinct paths for new and existing users:
@@ -64,6 +66,7 @@ The dashboard is the core of the application, enabling users to see an overview 
 - Navigating to the ‘Account’ page, the user can view a breakdown of their account information.
 - The user profile image is pulled in dynamically using Gravatar. If the email address isn’t associated with a Gravatar account, a default image will be displayed instead.
 - The user name, email address and personal info is displayed, as well as body metrics.
+- Clicking the 'Update Account' button, the user is directed to the update account page where they can amend information on their account.
 - The user also has the ability to remove their account by clicking the ‘Delete Account’ button, at which point they will be greeted with a warning prompt advising that this cannot be undone.
 
 ## Technologies
