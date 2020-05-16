@@ -33,9 +33,21 @@ There are two distinct paths for new and existing users:
 #### New users
 
 - New users fill out a sign-up form that includes password verification.
+
+![Landing page](/images/02-signup.png)
+
 - Users are then directed to a ‘Create Account’ page upon registration to fill out their account details, including body measurements.
+
+![Landing page](/images/04-create-account.png)
+
 - After account details have been entered, users are redirected to the app dashboard where they are prompted to add a new running entry.
+
+![Landing page](/images/05-dashboard-new-user.png)
+
 - The 'Add Entry' form requires information about the running session including the date, distance run and time taken.
+
+![Landing page](/images/06-add-entry.png)
+
 - Once confirmed, the user is redirected back to the dashboard where all entries are displayed.
 
 #### Existing users
@@ -46,6 +58,8 @@ There are two distinct paths for new and existing users:
 
 The dashboard is the core of the application, enabling users to see an overview of their progress and enter new exercise details.
 
+![Landing page](/images/07-dashboard-existing-user.png)
+
 #### Banner
 
 - At the top of the dashboard, users are greeted with a dynamic welcome message featuring their first name.
@@ -55,6 +69,8 @@ The dashboard is the core of the application, enabling users to see an overview 
 
 #### Entries table
 
+![Landing page](/images/08-dashboard-entries.png)
+
 - An entries table displays all of the user’s recorded running entries, ordered by the most recent date.
 - The speed of each run is calculated dynamically based on the distance and the speed.
 - Each run is compared with the fastest overall time, and any entries that match the fastest time are highlighted in green.
@@ -63,10 +79,15 @@ The dashboard is the core of the application, enabling users to see an overview 
 
 ### Account
 
+![Landing page](/images/09-user-account.png)
+
 - Navigating to the ‘Account’ page, the user can view a breakdown of their account information.
 - The user profile image is pulled in dynamically using Gravatar. If the email address isn’t associated with a Gravatar account, a default image will be displayed instead.
 - The user name, email address and personal info is displayed, as well as body metrics.
 - Clicking the 'Update Account' button, the user is directed to the update account page where they can amend information on their account.
+
+![Landing page](/images/10-update-account.png)
+
 - The user also has the ability to remove their account by clicking the ‘Delete Account’ button, at which point they will be greeted with a warning prompt advising that this cannot be undone.
 
 ## Technologies
