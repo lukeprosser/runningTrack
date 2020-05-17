@@ -86,6 +86,8 @@ const UpdateAccount = ({
                 placeholder='Enter your height in centimetres'
                 name='height'
                 value={height}
+                min='50'
+                max='250'
                 onChange={(e) => onChange(e)}
               />
             </div>
@@ -96,6 +98,8 @@ const UpdateAccount = ({
                 placeholder='Enter your weight in kilograms'
                 name='weight'
                 value={weight}
+                min='40'
+                max='200'
                 onChange={(e) => onChange(e)}
               />
             </div>

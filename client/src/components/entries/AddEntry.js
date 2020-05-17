@@ -27,6 +27,9 @@ const AddEntry = ({ addEntry, history }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    // Limit distance to 2 decimal places
+    formFields.distance = parseFloat(distance).toFixed(2);
+
     addEntry(formFields, history);
   };
 
