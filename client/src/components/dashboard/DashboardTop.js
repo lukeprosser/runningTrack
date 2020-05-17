@@ -18,7 +18,9 @@ const DashboardTop = ({ entries, user, topSpeed }) => {
             </div>
             <div className='dashboard-item'>
               <i className='fas fa-road'></i> Total distance:{' '}
-              {entries.reduce((total, entry) => total + entry.distance, 0)}
+              {entries
+                .reduce((total, entry) => total + entry.distance, 0)
+                .toFixed(2)}
               km
             </div>
             <div className='dashboard-item'>

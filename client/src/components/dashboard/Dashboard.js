@@ -58,7 +58,7 @@ const Dashboard = ({
             </Fragment>
           ) : (
             <Fragment>
-              <p class='lead'>
+              <p className='lead'>
                 You haven't logged any runs yet, let's get started:
               </p>
               <Link to='/add-entry' className='btn'>
